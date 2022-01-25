@@ -39,7 +39,6 @@ def extract_jobs(last_page):
 
     for result in results:
      job = extract_job(result)
-     #print(job)
      jobs.append(job)
   return jobs
 
