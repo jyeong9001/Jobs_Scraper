@@ -1,12 +1,10 @@
 from flask import Flask, render_template, request, redirect, send_file
-from idd import get_jobs as get_indeed_jobs
-from so import get_jobs as get_so_jobs
-
-indeed_jobs = get_indeed_jobs("a")
-
-so_jobs = get_so_jobs("a")
-
-included_jobs = indeed_jobs + so_jobs
+# from idd import get_jobs as get_indeed_jobs
+# from so import get_jobs as get_so_jobs
+from scrapper import get_all_jobs
+# indeed_jobs = get_indeed_jobs("a")
+# so_jobs = get_so_jobs("a")
+# included_jobs = indeed_jobs + so_jobs
 
 from exporter import save_to_file
 
@@ -31,7 +29,7 @@ def report():
     if existingJobs:
       jobs = existingJobs
     else:
-      jobs = included_jobs(word)
+      jobs = get_all_jobs(word)
       db[word] = jobs
   else:
     return redirect("/")
@@ -48,11 +46,11 @@ def export():
     if not jobs:
       raise Exception()
     save_to_file(jobs)
-    return send_file("jobs.csv")
+    return send_file("../jobs.csv")
   except:
     return redirect("/")
 
-app.run(host="0.0.0.0")
+app.run(host="0.0.0.0", port=8080)
 
 # @는 decorator로 바로 아래에 있는 함수를 찾아 접속 요청이 들어옴과 동시에 함수를 실행한다.
 
