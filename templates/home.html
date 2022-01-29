@@ -1,12 +1,38 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>Job Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}" />
+  <script src="https://kit.fontawesome.com/f9955354d5.js" crossorigin="anonymous"></script>
+  <script>
+
+  </script>
 </head>
 <body>
-  <h1>Job search</h1>
-  <form action="/report" method="get">
-    <input placeholder="What job do you want?" name="word" required>
- <button>Search</button>
+  <h1 class="top-container">Job Search</h1>
+  <h3 class="top-container">How big would you dream if you knew you couldn't fail?</h3>
+  <form class="middle-container" action="/report" method="get">
+    <i class="fas fa-search"></i>
+    <input id="input" placeholder="Search jobs"  name="word" required>
+    <button id="submit-button">Search</button>
   </form>
+  <div class="loader">
+  <span class="hidden"></span>
+  <span class="hidden"></span>
+  <span class="hidden"></span>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    $("#submit-button").click(function(event){
+      $("span").show();
+      $("form").hide();
+    });
+    $("h1").click(function(event){
+      $("form").show();
+      $("span").hide();
+    });
+  });
+  </script>
 </body>
 </html>

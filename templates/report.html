@@ -1,18 +1,15 @@
 <html lang="en">
 <head>
   <title>Job Search</title>
-  <style>
-    section {
-      display:grid;
-      gap:20px;
-      grid-template-columns: repeat(4, 1fr);
-    }
-  </style>
+  <link rel="stylesheet" href="{{ url_for('static', filename='report.css') }}" />
 </head>
 <body>
   <h1>Search Results</h1>
   <h3>Found {{resultsNumber}} results for {{searching}} </h3>
-  <a href="/export?word={{searching}}">Export to CSV</a>
+  <div id="button-box">
+    <a class="home-button" href="/">Back to Home</a>
+    <a class="export-button" href="/export?word={{searching}}">Download</a>
+  </div>
   <section>
     <h4>Title</h4>
     <h4>Company</h4>
@@ -22,7 +19,7 @@
       <span>{{job.title}}</span>
       <span>{{job.company}}</span>
       <span>{{job.location}}</span>
-      <a href="{{job.link}}" target="_blank">Apply</a>
+      <a class="apply-button" href="{{job.link}}" target="_blank">Apply</a>
     {% endfor %}
   </section>
 </body>

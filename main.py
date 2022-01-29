@@ -50,7 +50,7 @@ def export():
   except:
     return redirect("/")
 
-app.run(host="0.0.0.0", port=8080)
+app.run(host="0.0.0.0", port=8081)
 
 # @는 decorator로 바로 아래에 있는 함수를 찾아 접속 요청이 들어옴과 동시에 함수를 실행한다.
 
