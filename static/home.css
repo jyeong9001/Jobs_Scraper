@@ -1,0 +1,128 @@
+body {
+  background-color: rgb(235, 235, 235);
+  background-size: cover;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.hidden {
+  display: none;
+}
+
+.top-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.middle-container {
+  margin-top: 60px;
+}
+
+.fa-search {
+  font-size: 25px;
+  position: relative;
+  left: 60px;
+}
+
+h1 {
+  display: flex;
+  justify-content: center;
+  font-size: 100px;
+  margin-bottom: 0;
+  transition: color 0.3s ease-in-out;
+  margin-left: 450px;
+  margin-right: 450px;
+}
+
+h1:hover {
+  cursor: pointer;
+  color: rgb(144, 175, 93);
+}
+
+h3 {
+  margin-top: 0;
+  color: rgb(0, 0, 0, 0.8);
+}
+
+form {
+  text-align: center;
+}
+
+#input {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
+  font-size: 25px;
+  margin: 0 20px;
+  padding: 5px;
+  padding-left: 50px;
+  transition: border 0.3s ease-in-out;
+}
+
+#input:focus {
+  outline: 0;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+}
+form button {
+  border: none;
+  border-radius: 15px;
+  font-size: 25px;
+  background-color: rgb(0, 0, 0, 0.7);
+  padding: 7px 10px;
+  color: white;
+  margin: 0 20px;
+}
+
+form button:hover {
+  cursor: pointer;
+}
+
+form button:active {
+  transform: scale(0.96);
+}
+
+/* CSS for animated bouncing loader. */
+.loader {
+  display: flex;
+  justify-content: center;
+	align-items: center;
+}
+
+/* Loader circles */
+.loader > span {
+  background: rgb(247, 108, 74);
+  border-radius: 50%;
+  margin: 5rem 0.5rem;
+  animation: bouncingLoader 0.6s infinite alternate;
+}
+
+.loader > span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.loader > span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* Define the animation called bouncingLoader. */
+@keyframes bouncingLoader {
+  from {
+    width: 0.1rem;
+    height: 0.1rem;
+    opacity: 1;
+    transform: translate3d(0);
+  }
+  to {
+    width: 1rem;
+    height: 1rem;
+    opacity: 0.1;
+    transform: translate3d(0, -1rem, 0);
+  }
+}
+
+/* OPTIONAL: Styles for the demo. */
+
+p {
+  font: 1rem/1.45 "Operator Mono";
+  color: #A599E9;
+  text-align: center;
+}
